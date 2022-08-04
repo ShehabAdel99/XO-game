@@ -1,0 +1,5 @@
+﻿  XO.c
+D:\Git\XO-game\XO\XO\XO.c(74,26): warning C4047: '==': 'char (__cdecl *)(char *)' differs in levels of indirection from 'int'
+D:\Git\XO-game\XO\XO\XO.c(118,31): warning C4047: '==': 'char (__cdecl *)(char *)' differs in levels of indirection from 'int'
+D:\Git\XO-game\XO\XO\XO.c(71): warning C4715: 'win_condition': not all control paths return a value
+  XO.vcxproj -> D:\Git\XO-game\XO\Debug\XO.exe
