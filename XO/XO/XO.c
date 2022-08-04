@@ -70,12 +70,13 @@ char win_condition(char arr[]) {
 	}
 }
 
-void get_winner(struct player player_1, struct player player_2) {
-	if (win_condition == 'x') {
+void get_winner(char arr[],struct player player_1, struct player player_2) {
+	if (win_condition(arr) == 'x') {
 		if (player_1.is_x) {
-			printf("The winner is %s\n", player_1.name);
+			printf("---------------------------------------------------------------\n			WE HAVE A WINNER\n---------------------------------------------------------------\n");
+			show_table(arr);
+			printf("\nThe winner is %s\n\n", player_1.name);
 			player_1.win = true;
-			printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
 			unsigned int choice;
 			do {
 				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -94,9 +95,10 @@ void get_winner(struct player player_1, struct player player_2) {
 			} while (choice != 1 && choice != 2);
 		}
 		else {
-			printf("The winner is %s\n", player_2.name);
+			printf("---------------------------------------------------------------\n			WE HAVE A WINNER\n---------------------------------------------------------------\n");
+			show_table(arr);
+			printf("\nThe winner is %s\n\n", player_2.name);
 			player_2.win = true;
-			printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
 			unsigned int choice;
 			do {
 				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -115,11 +117,12 @@ void get_winner(struct player player_1, struct player player_2) {
 			} while (choice != 1 && choice != 2);
 		}
 	}
-	else if (win_condition == 'o') {
+	else if (win_condition(arr) == 'o') {
 		if (player_1.is_o) {
-			printf("The winner is %s\n", player_1.name);
+			printf("---------------------------------------------------------------\n			WE HAVE A WINNER\n---------------------------------------------------------------\n");
+			show_table(arr);
+			printf("\nThe winner is %s\n\n", player_2.name);
 			player_1.win = true;
-			printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
 			unsigned int choice;
 			do {
 				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -138,9 +141,10 @@ void get_winner(struct player player_1, struct player player_2) {
 			} while (choice != 1 && choice != 2);
 		}
 		else {
-			printf("The winner is %s\n", player_2.name);
+			printf("---------------------------------------------------------------\n			WE HAVE A WINNER\n---------------------------------------------------------------\n");
+			show_table(arr);
+			printf("\nThe winner is %s\n\n", player_2.name);
 			player_2.win = true;
-			printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
 			unsigned int choice;
 			do {
 				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -160,7 +164,8 @@ void get_winner(struct player player_1, struct player player_2) {
 		}
 	}
 	else {
-		return;
+		printf("still there");
+		return ;
 	}
 }
 
@@ -208,7 +213,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				arr[position - 1] = 'o';
 			}
 			if (win_condition(arr) != '-') {
-				get_winner(player_1,player_2);
+				get_winner(arr,player_1,player_2);
 				return;
 			}
 			//////////////////////////////////////////
@@ -242,7 +247,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 					arr[position - 1] = 'o';
 				}
 				if (win_condition(arr) != '-') {
-					get_winner(player_1, player_2);
+					get_winner(arr,player_1, player_2);
 					return;
 				}
 			}
@@ -253,7 +258,6 @@ void play(char arr[], struct player player_1, struct player player_2) {
 		else {
 			if (player_1.win ==false && player_2.win==false) {
 				printf("It's a draw.\n");
-				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
 				unsigned int choice;
 				do {
 					printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -282,14 +286,12 @@ void play(char arr[], struct player player_1, struct player player_2) {
 
 int main() {
 	unsigned char arr[9];
-	for (int i = 0; i < 9; i++) {
-		arr[i] = '-';
-	}
-
-
 	struct player player_1;
 	struct player player_2;
 	do {
+		for (int i = 0; i < 9; i++) {
+			arr[i] = '-';
+		}
 		printf("Player 1, Please enter your name.\n");
 		scanf("%50s", player_1.name);
 		unsigned int choice = 0;
