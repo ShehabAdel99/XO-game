@@ -205,7 +205,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 			show_table(arr);
 			printf("Game positions are like this: \n");
 			show_positions(arr);
-			printf("\n%s, Please select a position.\n\n", player_2.name);
+			printf("\n%s, Please select a position.\n\n", player_1.name);
 			scanf("%d", &position);
 			do {
 				if (position < 1 || position > 9) {
