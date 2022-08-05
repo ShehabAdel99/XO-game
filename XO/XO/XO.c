@@ -49,7 +49,7 @@ char win_condition(char arr[]) {
 			return arr[4];
 		}
 	}
-	else if (arr[2] != '-') {
+	if (arr[2] != '-') {
 		if (arr[0] == arr[1] && arr[1] == arr[2]) {
 			return arr[2];
 		}
@@ -57,7 +57,7 @@ char win_condition(char arr[]) {
 			return arr[2];
 		}
 	}
-	else if (arr[6] != '-') {
+	if (arr[6] != '-') {
 		if (arr[0] == arr[3] && arr[3] == arr[6]) {
 			return arr[6];
 		}
@@ -65,9 +65,9 @@ char win_condition(char arr[]) {
 			return arr[6];
 		}
 	}
-	else {
+	
 		return'-';
-	}
+	
 }
 
 void get_winner(char arr[],struct player player_1, struct player player_2) {
@@ -164,7 +164,6 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 		}
 	}
 	else {
-		printf("still there");
 		return ;
 	}
 }
@@ -189,7 +188,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 			show_table(arr);
 			printf("Game positions are like this: \n");
 			show_positions(arr);
-			printf("%s, Please select a position.\n", player_1.name);
+			printf("\n%s, Please select a position.\n\n", player_2.name);
 			scanf("%d", &position);
 			do {
 				if (position < 1 || position > 9) {
@@ -223,7 +222,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				show_table(arr);
 				printf("Game positions are like this: \n");
 				show_positions(arr);
-				printf("%s, Please select a position.\n", player_2.name);
+				printf("\n%s, Please select a position.\n\n", player_2.name);
 				scanf("%d", &position);
 				do {
 					if (position < 1 || position>9) {
@@ -257,7 +256,8 @@ void play(char arr[], struct player player_1, struct player player_2) {
 		}
 		else {
 			if (player_1.win ==false && player_2.win==false) {
-				printf("It's a draw.\n");
+				printf("---------------------------------------------------------------\n			IT'S A DRAW\n---------------------------------------------------------------\n");
+				show_table(arr);
 				unsigned int choice;
 				do {
 					printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
@@ -276,7 +276,8 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				} while (choice != 1 && choice != 2);
 			}
 			else {
-				printf("oops... I don't know what the current situation is. Please restart :(\n");
+				get_winner(arr,player_1,player_2);
+				return;
 			}
 		}
 	} while (places_available);
@@ -289,6 +290,14 @@ int main() {
 	struct player player_1;
 	struct player player_2;
 	do {
+		player_1.is_x = false;
+		player_1.is_o = false;
+		player_1.win = false;
+		player_2.is_x = false;
+		player_2.is_o = false;
+		player_2.win = false;
+		
+
 		for (int i = 0; i < 9; i++) {
 			arr[i] = '-';
 		}
