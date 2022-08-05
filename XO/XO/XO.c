@@ -4,8 +4,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+/*Global variables to use throwout the code.*/
+
 bool places_available = true;
 bool play_again = false;
+
+/*A structure to create a data type for players.*/
 
 struct player {
 	unsigned char name[50];
@@ -13,6 +17,8 @@ struct player {
 	bool is_o;
 	bool win;
 };
+
+/*Function to show the game with every change that happens throw playing.*/
 
 void show_table(char arr[]) {
 	printf("-------------\n");
@@ -24,6 +30,8 @@ void show_table(char arr[]) {
 	}
 }
 
+/*Function shows the players the positions of the game to play in.*/
+
 void show_positions(char arr[]) {
 	printf("-------------\n");
 	for (int i = 0; i < 9; i++) {
@@ -33,6 +41,8 @@ void show_positions(char arr[]) {
 		}
 	}
 }
+
+/*Tests all the winning conditions of a XO game and returns who won (X/O) or return '-' that refers to the game is not finished yet.*/
 
 char win_condition(char arr[]) {
 	if (arr[4] != '-') {
@@ -69,6 +79,8 @@ char win_condition(char arr[]) {
 		return'-';
 	
 }
+
+/*If there is a winning condition this function get the winner and show it on the screen.*/
 
 void get_winner(char arr[],struct player player_1, struct player player_2) {
 	if (win_condition(arr) == 'x') {
@@ -168,6 +180,8 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 	}
 }
 
+/*Checks if there is an available place to play in or not.*/
+
 void check_available_places(char arr[]) {
 	places_available = false;
 	for (int i = 0; i < 9; i++) {
@@ -178,12 +192,15 @@ void check_available_places(char arr[]) {
 	}
 }
 
+/*Controls the flow of the game and allow the players to take turns untill we have a winner or it's a draw.*/
+
 void play(char arr[], struct player player_1, struct player player_2) {
 	do {
 		check_available_places(arr);
 		unsigned int position;
 		bool wrong_input = false;
 		if (places_available) {
+			//////////////////////////   Player 1's turn   //////////////////////////
 			printf("The game is currently as shown: \n");
 			show_table(arr);
 			printf("Game positions are like this: \n");
@@ -215,7 +232,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				get_winner(arr,player_1,player_2);
 				return;
 			}
-			///////////////////////////////////////////////
+			//////////////////////////   Player 2's turn   //////////////////////////
 			check_available_places(arr);
 			if (places_available) {
 				printf("The game is currently as shown: \n");
