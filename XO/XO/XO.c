@@ -232,7 +232,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				get_winner(arr,player_1,player_2);
 				return;
 			}
-			/////////////////////////   Player 2's turn   /////////////////////////
+			//////////////////////////   Player 2's turn   //////////////////////////
 			check_available_places(arr);
 			if (places_available) {
 				printf("The game is currently as shown: \n");
