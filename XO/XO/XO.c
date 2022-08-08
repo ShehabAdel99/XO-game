@@ -200,7 +200,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 		unsigned int position;
 		bool wrong_input = false;
 		if (places_available) {
-			//////////////////////////   Player 1's turn   //////////////////////////
+			/////////////////////////   Player 1's turn   /////////////////////////
 			printf("The game is currently as shown: \n");
 			show_table(arr);
 			printf("Game positions are like this: \n");
@@ -232,7 +232,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				get_winner(arr,player_1,player_2);
 				return;
 			}
-			//////////////////////////   Player 2's turn   //////////////////////////
+			/////////////////////////   Player 2's turn   /////////////////////////
 			check_available_places(arr);
 			if (places_available) {
 				printf("The game is currently as shown: \n");
@@ -300,6 +300,8 @@ void play(char arr[], struct player player_1, struct player player_2) {
 	} while (places_available);
 }
 
+
+/* main function */
 
 
 int main() {
