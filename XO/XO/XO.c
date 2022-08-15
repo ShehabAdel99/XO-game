@@ -301,6 +301,8 @@ void play(char arr[], struct player player_1, struct player player_2) {
 }
 
 
+/* main function */
+
 
 int main() {
 	unsigned char arr[9];
