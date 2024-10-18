@@ -91,7 +91,7 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 			player_1.win = true;
 			unsigned int choice;
 			do {
-				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
+				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (2) for NO.\n");
 				scanf("%d", &choice);
 				if (choice == 1) {
 					play_again = true;
@@ -113,7 +113,7 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 			player_2.win = true;
 			unsigned int choice;
 			do {
-				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
+				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (2) for NO.\n");
 				scanf("%d", &choice);
 				if (choice == 1) {
 					play_again = true;
@@ -137,7 +137,7 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 			player_1.win = true;
 			unsigned int choice;
 			do {
-				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
+				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (2) for NO.\n");
 				scanf("%d", &choice);
 				if (choice == 1) {
 					play_again = true;
@@ -159,7 +159,7 @@ void get_winner(char arr[],struct player player_1, struct player player_2) {
 			player_2.win = true;
 			unsigned int choice;
 			do {
-				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
+				printf("Do you want to play again?\n	Click (1) for YES.\n	Click (2) for NO.\n");
 				scanf("%d", &choice);
 				if (choice == 1) {
 					play_again = true;
@@ -277,7 +277,7 @@ void play(char arr[], struct player player_1, struct player player_2) {
 				show_table(arr);
 				unsigned int choice;
 				do {
-					printf("Do you want to play again?\n	Click (1) for YES.\n	Click (1) for NO.\n");
+					printf("Do you want to play again?\n	Click (1) for YES.\n	Click (2) for NO.\n");
 					scanf("%d", &choice);
 					if (choice == 1) {
 						play_again = true;
